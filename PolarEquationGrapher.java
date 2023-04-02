@@ -27,12 +27,19 @@ public class PolarEquationGrapher extends JPanel {
 
 
         // Draw the polar equation
-        g2d.setColor(Color.BLACK);
+        g2d.setColor(Color.LIGHT_GRAY);
         g2d.setStroke(new BasicStroke(0.05f));
 
         g2d.fillOval(-3, -3, 6, 6);
-        g2d.drawLine(0, 0, (int)SCALE_FACTOR, 0);
+        g2d.drawLine(-WIDTH/2, 0, WIDTH/2, 0);
+        g2d.drawLine(0, -HEIGHT/2, 0, HEIGHT/2);
+        int scaleint = (int)SCALE_FACTOR;
+        g2d.drawOval(-scaleint, -scaleint, 2*scaleint, 2*scaleint);
+        g2d.drawOval(-2*scaleint, -2*scaleint, 4*scaleint, 4*scaleint);
+        g2d.drawOval(-3*scaleint, -3*scaleint, 6*scaleint, 6*scaleint);
+        g2d.drawOval(-4*scaleint, -4*scaleint, 8*scaleint, 8*scaleint);
 
+        g2d.setColor(Color.BLACK);
         double x1 = equation.getR(THETA_MIN)* Math.cos(THETA_MIN);
         double y1 = -equation.getR(THETA_MIN)* Math.sin(THETA_MIN);
         for (double theta = THETA_MIN; theta <= THETA_MAX; theta += DELTA_THETA) {
